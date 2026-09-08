@@ -1,0 +1,5 @@
+# 本阶段仅忽略可重新创建的环境与 Python 缓存，不忽略源码。
+.venv/
+.venv-exercise/
+__pycache__/
+*.pyc

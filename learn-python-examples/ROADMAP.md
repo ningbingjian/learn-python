@@ -4,7 +4,7 @@
 
 本路线采用示例驱动的学习方式：用中文讲清原理，用完整注释引导抄代码，用可观察的结果验证理解。以 Python 语言与后端开发为主线，同时保留自动化、数据分析和底层机制的广度。这里的“深入”以能独立解决问题为标准，不以抄完数量或学完若干周承诺“精通”。
 
-**本路线规划 24 个阶段、192 个示例；第一阶段详细大纲与 01-001 课程已完成，其余课程待生成。** 每个编号可继续拆成多个演进步骤；一节较难的主题可以分多次完成。没有源码链接的条目不是已完成课程。
+**本路线规划 24 个阶段、192 个示例；第一阶段详细大纲与 01-001～01-008 共 8 课已完成，其余阶段课程待生成。** 每个编号可继续拆成多个演进步骤；一节较难的主题可以分多次完成。没有源码链接的条目不是已完成课程。
 
 每个阶段按“基础用法 → 机制与边界 → 组合实践”推进。每个示例按“理论 → 实操（边抄边解释原理）→ 小总结”组织；理论结束和整课结束也分别总结。详细要求见 [AGENTS.md](AGENTS.md)。
 
@@ -54,18 +54,18 @@
 - 类型：主线。
 - 前置：无；从打开终端开始。
 - 阶段目标：能够独立创建、运行、修改并排查一个 Python 文件。
-- [第一阶段详细大纲](phase01-environment/README.md)：已细化各课理论、演进步骤、边界和验收；01-001 已完成，后续课程待编写。
+- [第一阶段详细大纲](phase01-environment/README.md)：已细化各课理论、演进步骤、边界和验收；8 课均已完成；[核心实验验证记录](phase01-environment/VERIFICATION.md)。
 
 | 编号 | 要抄写的示例 | 重点原理与观察内容 |
 | --- | --- | --- |
 | 01-001 | [认识解释器、终端与第一个程序](phase01-environment/001-first-program/README.md) | 工具分工、安装检查、创建保存运行，仅完成单行固定输出 |
-| 01-002 | 打印多行模拟信息 | 字符串字面量、print、注释、默认换行与执行顺序 |
-| 01-003 | 从不同目录运行同一个文件 | 当前目录、相对/绝对路径与带空格路径，区分命令和脚本未找到 |
-| 01-004 | 交互模式与脚本模式 | 即时求值、表达式结果与显式输出的差别 |
-| 01-005 | 认识语法错误与异常回溯 | 定位文件、行号和错误类型，修复缩进和拼写错误 |
-| 01-006 | 检查并选择项目解释器 | 对照终端与编辑器的实际解释器路径，建立环境诊断顺序 |
-| 01-007 | 创建并使用隔离环境 | venv、激活与直接调用，检查解释器和 pip 归属，不安装第三方库 |
-| 01-008 | 独立完成信息卡程序 | 从空目录创建脚本并记录运行命令，解释每一行 |
+| 01-002 | [打印多行模拟信息](phase01-environment/002-output-and-comments/README.md) | 字符串字面量、print、注释、默认换行与执行顺序 |
+| 01-003 | [从不同目录运行同一个文件](phase01-environment/003-paths-and-execution/README.md) | 当前目录、相对/绝对路径与带空格路径，区分命令和脚本未找到 |
+| 01-004 | [交互模式与脚本模式](phase01-environment/004-interactive-and-script/README.md) | 即时求值、表达式结果与显式输出的差别 |
+| 01-005 | [认识语法错误与异常回溯](phase01-environment/005-errors-and-tracebacks/README.md) | 定位文件、行号和错误类型，修复缩进和拼写错误 |
+| 01-006 | [检查并选择项目解释器](phase01-environment/006-interpreter-selection/README.md) | 对照终端与编辑器的实际解释器路径，建立环境诊断顺序 |
+| 01-007 | [创建并使用隔离环境](phase01-environment/007-virtual-environment/README.md) | venv、激活与直接调用，检查解释器和 pip 归属，不安装第三方库 |
+| 01-008 | [独立完成信息卡程序](phase01-environment/008-information-card/README.md) | 从空目录创建脚本并记录运行命令，解释每一行 |
 
 **阶段验收：** 从空目录完成固定文本信息卡，保留需求变更前后版本；检查中文、空行、行序和不同工作目录下的运行，修复路径与源码错误，确认解释器与虚拟环境。验收不引入用户输入、变量或计算；详细标准见阶段大纲。
 
@@ -577,9 +577,9 @@
 
 ## 首批生成顺序
 
-先完成并维护 [阶段 01 详细大纲](phase01-environment/README.md)，再写 `001`，完成环境、终端和首个程序；之后逐个推进到 `008`。其他阶段也先细化大纲，再生成各课。进入阶段 02 后再系统讲变量和类型，不在第一个打印示例里提前塞进类、装饰器、Web 框架或数据库。
+[阶段 01](phase01-environment/README.md) 的大纲和 `001`～`008` 已完成。接下来先细化阶段 02 大纲，再逐课生成；其他阶段继续遵守先细化大纲、再编写课程的顺序。进入阶段 02 后再系统讲变量和类型，不在第一个打印示例里提前塞进类、装饰器、Web 框架或数据库。
 
-用户刚问的 `@dataclass` 安排在 `08-006` 至 `08-008`：先手写普通类，看到初始化、打印与比较的重复代码，再用数据类改进，最后处理可变默认值、初始化后处理和不可变配置。后续 `15-003` 再讨论它与接口校验模型的职责差异。
+`@dataclass` 安排在 `08-006` 至 `08-008`：先手写普通类，看到初始化、打印与比较的重复代码，再用数据类改进，最后处理可变默认值、初始化后处理和不可变配置。后续 `15-003` 再讨论它与接口校验模型的职责差异。
 
 ## 完成记录约定
 
@@ -588,6 +588,13 @@
 | 编号 | 讲解链接 | 源码与演进步骤 | 状态 | 验证环境与结果 |
 | --- | --- | --- | --- | --- |
 | 01-001 | [课程正文](phase01-environment/001-first-program/README.md) | 两步源码与练习答案已提供 | 已验证（Linux） | CPython 3.12.13；[验证范围与结果](phase01-environment/001-first-program/VERIFICATION.md) |
+| 01-002 | [课程正文](phase01-environment/002-output-and-comments/README.md) | 分步材料与独立答案已提供 | 已验证（Linux 核心实验） | [验证范围与结果](phase01-environment/002-output-and-comments/VERIFICATION.md) |
+| 01-003 | [课程正文](phase01-environment/003-paths-and-execution/README.md) | 分步材料与独立答案已提供 | 已验证（Linux 核心实验） | [验证范围与结果](phase01-environment/003-paths-and-execution/VERIFICATION.md) |
+| 01-004 | [课程正文](phase01-environment/004-interactive-and-script/README.md) | 分步材料与独立答案已提供 | 已验证（Linux 核心实验） | [验证范围与结果](phase01-environment/004-interactive-and-script/VERIFICATION.md) |
+| 01-005 | [课程正文](phase01-environment/005-errors-and-tracebacks/README.md) | 分步材料与独立答案已提供 | 已验证（Linux 核心实验） | [验证范围与结果](phase01-environment/005-errors-and-tracebacks/VERIFICATION.md) |
+| 01-006 | [课程正文](phase01-environment/006-interpreter-selection/README.md) | 分步材料与独立答案已提供 | 已验证（Linux 核心实验） | [验证范围与结果](phase01-environment/006-interpreter-selection/VERIFICATION.md) |
+| 01-007 | [课程正文](phase01-environment/007-virtual-environment/README.md) | 分步材料与独立答案已提供 | 已验证（Linux 核心实验） | [验证范围与结果](phase01-environment/007-virtual-environment/VERIFICATION.md) |
+| 01-008 | [课程正文](phase01-environment/008-information-card/README.md) | 分步材料与独立答案已提供 | 已验证（Linux 核心实验） | [验证范围与结果](phase01-environment/008-information-card/VERIFICATION.md) |
 
 建议状态依次为：规划中、编写中、已验证、已学习。只有读者明确反馈完成学习，才标记“已学习”；“已验证”必须有实际运行依据。
 

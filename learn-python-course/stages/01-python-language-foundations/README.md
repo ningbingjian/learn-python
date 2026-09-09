@@ -38,7 +38,7 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 7. **边界清楚**：当前问题不需要的高级语言机制留到后续 Stage。
 8. **迁移而非照抄**：最终 Learning Gate 要求学习者闭卷完成正文未出现的新需求。
 
-`Golden Reference` 只描述设计角色，不替代 `PLANNED → DESIGNED → BUILT → VALIDATED` 状态语义。当前只有 Stage 与 Module 边界设计，尚无正式 Unit 正文和源码，因此仍为 `DESIGNED`。
+`Golden Reference` 只描述设计角色，不替代 `PLANNED → DESIGNED → BUILT → VALIDATED` 状态语义。Stage 01 整体仍为 `DESIGNED`，已有七个 `BUILT` Unit：Module 01～02 包含六个正式 Unit 和两个源码里程碑，Module 03 / Unit 01 已完成正文与验证，但没有独立源码里程碑。Module 03 的其余 Unit 尚未建设，Module 04～07 仍只有边界说明。
 
 ## 3. 七个 Module 的因果链
 

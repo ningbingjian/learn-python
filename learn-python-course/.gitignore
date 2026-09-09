@@ -1,0 +1,12 @@
+# Generated files for the Stage course; sibling courses keep their own rules.
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.coverage
+.coverage.*
+htmlcov/
+.DS_Store

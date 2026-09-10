@@ -100,7 +100,7 @@ Integration & Stage Project
 
 关键边界：Stage 00 已经负责源码、解释器、进程和运行工作流，Stage 01 从第一条真实任务开始写 Python。Iterator、Generator、Decorator、Context Manager、完整 Python Data Model、继承、ABC、Protocol、Bytecode、GC、GIL、复杂 Typing 和完整 Packaging 后置。
 
-能力证明：闭卷为 CLI Task Tracker 增加 `priority`、排序与 `list --pending` 能力，能够同步修改数据模型、函数、Package、对象与测试，并解释名字绑定、可变对象、函数契约、模块拆分和基础对象协作。
+能力证明：闭卷为 CLI Task Tracker 增加 `due_in_days`、按既有优先级排序与 `list --due`（今天到期且未完成）能力，能够同步修改数据模型、函数、Package、对象与测试，并解释名字绑定、可变对象、函数契约、模块拆分和基础对象协作。
 
 目录：[`stages/01-python-language-foundations/`](stages/01-python-language-foundations/)
 

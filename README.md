@@ -4,6 +4,6 @@
 
 [learn-python-course](learn-python-course/README.md)：按 Stage / Module / Unit 组织的问题驱动课程，沿同一个 CLI Task Tracker 连续演进，并提供机制解释、运行证据与迁移练习。
 
-两套课程分别维护路线与学习进度。Stage 课程当前已建成 Stage 01 的 Module 01～02 和 Module 03 / Unit 01，共 7 个 `BUILT` Unit；Module 03 与 Stage 01 整体仍为 `DESIGNED`。
+两套课程分别维护路线与学习进度。Stage 01 已完成 7 个 Module、21 个 `BUILT` Unit、七个连续源码里程碑与完整 Task Tracker；真实学习者验证尚未执行，未标记 `VALIDATED`。
 
-Stage 课程最新章节：[怎样把业务规则写成可读分支？](learn-python-course/stages/01-python-language-foundations/03-control-flow/01-readable-business-branches/README.md)
+Stage 课程入口：[Stage 01 完整课程](learn-python-course/stages/01-python-language-foundations/README.md) · [运行与验证](learn-python-course/stages/01-python-language-foundations/VERIFY.md)

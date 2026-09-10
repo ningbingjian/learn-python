@@ -1,10 +1,10 @@
 # Stage 01 — Python Language Foundations
 
-> 状态：`DESIGNED`<br>
+> 状态：`BUILT`<br>
 > 设计角色：后续 Stage 的 Golden Reference 设计基线<br>
 > Python 基线：3.14<br>
 > 前置：完成 Stage 00，能够从终端运行 Python、使用 uv 恢复项目并执行基础测试<br>
-> 当前进度：Module 01～02 `BUILT`；Module 03 / Unit 01 `BUILT`；Module 03～07 整体仍为 `DESIGNED`；正式 `BUILT` Unit 7 个<br>
+> 当前进度：7 个 Module、21 个 Unit 与七个主线源码里程碑均为 `BUILT`；真实 Learning Gate 尚未执行<br>
 > 阶段目标：从“能运行脚本”成长为“能独立实现、拆分、测试并解释一个结构清晰的命令行应用”。
 
 ## 1. Stage 总问题
@@ -38,7 +38,7 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 7. **边界清楚**：当前问题不需要的高级语言机制留到后续 Stage。
 8. **迁移而非照抄**：最终 Learning Gate 要求学习者闭卷完成正文未出现的新需求。
 
-`Golden Reference` 只描述设计角色，不替代 `PLANNED → DESIGNED → BUILT → VALIDATED` 状态语义。Stage 01 整体仍为 `DESIGNED`，已有七个 `BUILT` Unit：Module 01～02 包含六个正式 Unit 和两个源码里程碑，Module 03 / Unit 01 已完成正文与验证，但没有独立源码里程碑。Module 03 的其余 Unit 尚未建设，Module 04～07 仍只有边界说明。
+`Golden Reference` 描述课程设计角色，不替代状态语义。现在七个 Module、21 个 Unit、七个独立可运行主线里程碑及必要实验、练习、参考解已建设，并完成作者技术与教学审查。状态为 `BUILT`；没有真实学习者跟做与闭卷迁移记录，因此不标记 `VALIDATED`。可重复证据见 [VERIFY.md](VERIFY.md)。
 
 ## 3. 七个 Module 的因果链
 
@@ -46,11 +46,11 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 |---|---|---|---|
 | [01.01 First Useful Python Program](01-first-useful-python-program/) | 一个脚本怎样真正处理用户数据？ | 只能运行文件，还不能表达任务数据 | `01-interactive-script` |
 | [01.02 Collections & Mutable State](02-collections-and-mutable-state/) | 一条任务怎样变成一组可管理的任务？ | 单个名字无法表达集合与关系 | `02-collection-model` |
-| [01.03 Control Flow](03-control-flow/) | 程序怎样形成真正可用的业务流程？ | 数据存在，但没有规则、遍历和交互循环 | `03-control-flow-cli` |
-| [01.04 Functions & Contracts](04-functions-and-contracts/) | 脚本变长后怎样划分职责？ | 重复、嵌套和隐式约定开始累积 | `04-function-oriented` |
-| [01.05 Modules & Packages](05-modules-and-packages/) | 单文件为什么开始不可维护？ | 函数增多，职责和导入边界不清 | `05-package-structured` |
-| [01.06 Classes & Object Collaboration](06-classes-and-object-collaboration/) | `dict + 函数` 什么时候已经不够？ | 数据结构脆弱，行为散落在外部函数 | `06-object-model` |
-| [01.07 Integration & Stage Project](07-integration-and-stage-project/) | 能否独立组合、测试并迁移全部能力？ | 各部分已形成，但尚未经过完整交付验证 | `07-complete-task-tracker` |
+| [01.03 Control Flow](03-control-flow/) | 程序怎样形成真正可用的业务流程？ | 数据存在，但没有规则、遍历和交互循环 | [`03-control-flow-cli`](03-control-flow/03-compose-interactive-cli/03-control-flow-cli/) |
+| [01.04 Functions & Contracts](04-functions-and-contracts/) | 脚本变长后怎样划分职责？ | 重复、嵌套和隐式约定开始累积 | [`04-function-oriented`](04-functions-and-contracts/03-state-and-scope/04-function-oriented/) |
+| [01.05 Modules & Packages](05-modules-and-packages/) | 单文件为什么开始不可维护？ | 函数增多，职责和导入边界不清 | [`05-package-structured`](05-modules-and-packages/03-break-circular-dependencies/05-package-structured/) |
+| [01.06 Classes & Object Collaboration](06-classes-and-object-collaboration/) | `dict + 函数` 什么时候已经不够？ | 数据结构脆弱，行为散落在外部函数 | [`06-object-model`](06-classes-and-object-collaboration/03-compose-task-collaborators/06-object-model/) |
+| [01.07 Integration & Stage Project](07-integration-and-stage-project/) | 能否独立组合、测试并迁移全部能力？ | 各部分已形成，但尚未经过完整交付验证 | [`07-complete-task-tracker`](07-integration-and-stage-project/02-complete-and-verify-task-tracker/07-complete-task-tracker/) |
 
 知识结构与项目演进结构必须重合。某个知识如果不能说明“为什么在当前版本出现”，就需要重新判断它的顺序、深度或载体。
 
@@ -81,8 +81,8 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 核心问题：已经保存的数据怎样变成有规则、会重复执行并能正确结束的程序？
 
 - **[Unit 01：怎样把业务规则写成可读分支？](03-control-flow/01-readable-business-branches/)** 使用 `if / elif / else`、比较、布尔运算、truthiness 和简单条件表达式，解释条件求值、规则重叠与修改边界。
-- **Unit 02：怎样处理一组任务并正确终止？** 使用 `for`、`while`、`range`、`break`、`continue` 和必要的 loop `else`，区分“遍历数据”和“维持交互”。
-- **Unit 03：怎样把命令、规则和循环组合成可用 CLI？** 用字面量 `match` 路由稳定命令，完成新增、查看、完成和退出流程；在集合变换自然出现时引入 comprehension，并说明何时普通循环更可读。
+- **[Unit 02：怎样处理一组任务并正确终止？](03-control-flow/02-traverse-and-terminate-loops/)** 使用 `for`、`while`、`range`、`break`、`continue` 和必要的 loop `else`，区分“遍历数据”和“维持交互”。
+- **[Unit 03：怎样把命令、规则和循环组合成可用 CLI？](03-control-flow/03-compose-interactive-cli/)** 用字面量 `match` 路由稳定命令，完成新增、查看、完成和退出流程；在集合变换自然出现时引入 comprehension，并说明何时普通循环更可读。
 
 退出本 Module 时，Task Tracker 第一次成为真正可用的交互程序，但仍允许它是一个开始变长的单文件脚本。
 
@@ -90,9 +90,9 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 
 核心问题：重复和嵌套开始妨碍修改后，怎样用函数建立职责与可测试契约？
 
-- **Unit 01：什么时候应该把代码抽成函数？** 从重复逻辑、命名困难和分支嵌套推导函数边界，而不是先背函数语法。
-- **Unit 02：参数和返回值怎样形成稳定契约？** 覆盖 positional / keyword / default 参数、返回值、多值解包，以及 `*args` / `**kwargs` 的必要入口和适用边界。
-- **Unit 03：函数为什么会意外共享或修改状态？** 通过 mutable default argument 和作用域问题讲清参数绑定、mutation / rebinding、LEGB 与尽量显式的数据流。
+- **[Unit 01：什么时候应该把代码抽成函数？](04-functions-and-contracts/01-extract-responsibilities/)** 从重复逻辑、命名困难和分支嵌套推导函数边界，而不是先背函数语法。
+- **[Unit 02：参数和返回值怎样形成稳定契约？](04-functions-and-contracts/02-parameters-and-return-contracts/)** 覆盖 positional / keyword / default 参数、返回值、多值解包，以及 `*args` / `**kwargs` 的必要入口和适用边界。
+- **[Unit 03：函数为什么会意外共享或修改状态？](04-functions-and-contracts/03-state-and-scope/)** 通过 mutable default argument 和作用域问题讲清参数绑定、mutation / rebinding、LEGB 与尽量显式的数据流。
 
 本 Module 开始利用 Stage 00 的基础测试能力，为纯函数和关键规则增加自动化测试；完整 pytest 体系仍属于 Stage 06。
 
@@ -100,9 +100,9 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 
 核心问题：函数已经分清职责以后，为什么仍然需要拆分单文件？
 
-- **Unit 01：哪些职责应该成为独立 Module？** 从 CLI 交互、任务操作和数据模型的变化频率推导文件边界与 import。
-- **Unit 02：程序入口和导入行为是什么关系？** 讲清 `__name__`、绝对 / 相对导入、Package 入口和最小可执行结构。
-- **Unit 03：循环导入为什么是设计信号？** 通过一次可复现失败识别双向依赖，调整责任方向和公开边界；完整 Import System 后置。
+- **[Unit 01：哪些职责应该成为独立 Module？](05-modules-and-packages/01-separate-module-responsibilities/)** 从 CLI 交互、任务操作和数据模型的变化频率推导文件边界与 import。
+- **[Unit 02：程序入口和导入行为是什么关系？](05-modules-and-packages/02-entry-points-and-imports/)** 讲清 `__name__`、绝对 / 相对导入、Package 入口和最小可执行结构。
+- **[Unit 03：循环导入为什么是设计信号？](05-modules-and-packages/03-break-circular-dependencies/)** 通过一次可复现失败识别双向依赖，调整责任方向和公开边界；完整 Import System 后置。
 
 拆包不是为了模仿企业目录。只有当前职责和依赖关系需要时才增加文件与 Package。
 
@@ -110,9 +110,9 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 
 核心问题：什么时候“任务数据放在 dict、任务行为散落在函数”已经成为主要维护成本？
 
-- **Unit 01：为什么现在需要 class？** 从字符串 Key、脆弱数据形状和散落行为出发，让 `Task` 成为数据与自身行为的稳定边界。
-- **Unit 02：实例状态和方法为什么需要 `self`？** 讲 class、instance、attribute、`__init__` 与 instance method，并用已有函数迁移验证模型。
-- **Unit 03：多个对象怎样协作而不互相创建一切？** 使用组合、依赖传入和清晰职责，让 CLI 与任务集合协作；不在本阶段展开完整 OOP。
+- **[Unit 01：为什么现在需要 class？](06-classes-and-object-collaboration/01-from-records-to-objects/)** 从字符串 Key、脆弱数据形状和散落行为出发，让 `Task` 成为数据与自身行为的稳定边界。
+- **[Unit 02：实例状态和方法为什么需要 `self`？](06-classes-and-object-collaboration/02-instance-state-and-methods/)** 讲 class、instance、attribute、`__init__` 与 instance method，并用已有函数迁移验证模型。
+- **[Unit 03：多个对象怎样协作而不互相创建一切？](06-classes-and-object-collaboration/03-compose-task-collaborators/)** 使用组合、依赖传入和清晰职责，让 CLI 与任务集合协作；不在本阶段展开完整 OOP。
 
 本 Module 只覆盖 class、instance、state、method、`self`、`__init__`、composition 和 object collaboration。继承、多态、ABC、Protocol 与 Python Data Model 留在 Stage 02。
 
@@ -120,9 +120,9 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 
 核心问题：学习者能否不依赖逐行指令，把前六个 Module 的能力组合成可交付、可测试、可扩展的应用？
 
-- **Unit 01：怎样把需求转成实现与验收计划？** 固定命令、数据规则、错误场景、Package 边界和测试清单，识别前六版遗留问题。
-- **Unit 02：怎样完成并验证完整 Task Tracker？** 加入修改、删除、按状态筛选、可靠输入处理、运行文档和基础自动化测试，形成最终完整状态。
-- **Unit 03：能否闭卷完成一个未在正文出现的变化？** 在不提供逐行答案的情况下增加 `priority`、按优先级排序和 `list --pending` 能力，并同步修改模型、函数、Package 与测试。
+- **[Unit 01：怎样把需求转成实现与验收计划？](07-integration-and-stage-project/01-plan-requirements-and-acceptance/)** 固定命令、数据规则、错误场景、Package 边界和测试清单，识别前六版遗留问题。
+- **[Unit 02：怎样完成并验证完整 Task Tracker？](07-integration-and-stage-project/02-complete-and-verify-task-tracker/)** 加入修改、删除、按状态筛选、可靠输入处理、运行文档和基础自动化测试，形成最终完整状态。
+- **[Unit 03：能否闭卷完成一个未在正文出现的变化？](07-integration-and-stage-project/03-closed-book-transfer/)** 在不提供逐行答案的情况下增加 `due_in_days`、按既有优先级排序和 `list --due` 能力，并同步修改模型、函数、Package 与测试。
 
 这不是“最后再做一次项目”。Module 07 负责集成、验收和迁移；项目的前六次实质演进已经分别属于前六个 Module。
 
@@ -132,13 +132,13 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 |---|---|---|---|
 | [`01-interactive-script`](01-first-useful-python-program/03-trust-user-input/01-interactive-script/) | 01 | 只有运行环境，没有业务程序 | 能接收、转换、校验并输出一条任务 |
 | [`02-collection-model`](02-collections-and-mutable-state/03-shared-mutable-state/02-collection-model/) | 02 | 单条任务不能表达一组任务 | 能用合适容器管理内存状态并解释共享修改 |
-| `03-control-flow-cli` | 03 | 数据没有形成业务流程 | 能用规则、遍历和交互循环完成基础操作 |
-| `04-function-oriented` | 04 | 单文件中的逻辑重复且难测试 | 职责由有明确参数和返回值的函数承接 |
-| `05-package-structured` | 05 | 函数数量增加后文件与依赖边界模糊 | 应用可从明确入口运行，Module / Package 职责清楚 |
-| `06-object-model` | 06 | `dict` Key 脆弱且行为散落 | `Task` 对象稳定承接状态和自身行为，对象通过组合协作 |
-| `07-complete-task-tracker` | 07 | 分项能力尚未经过完整交付 | 完整需求、错误路径、测试、文档和迁移任务通过验收 |
+| [`03-control-flow-cli`](03-control-flow/03-compose-interactive-cli/03-control-flow-cli/) | 03 | 数据没有形成业务流程 | 能用规则、遍历和交互循环完成基础操作 |
+| [`04-function-oriented`](04-functions-and-contracts/03-state-and-scope/04-function-oriented/) | 04 | 单文件中的逻辑重复且难测试 | 职责由有明确参数和返回值的函数承接 |
+| [`05-package-structured`](05-modules-and-packages/03-break-circular-dependencies/05-package-structured/) | 05 | 函数数量增加后文件与依赖边界模糊 | 应用可从明确入口运行，Module / Package 职责清楚 |
+| [`06-object-model`](06-classes-and-object-collaboration/03-compose-task-collaborators/06-object-model/) | 06 | `dict` Key 脆弱且行为散落 | `Task` 对象稳定承接状态和自身行为，对象通过组合协作 |
+| [`07-complete-task-tracker`](07-integration-and-stage-project/02-complete-and-verify-task-tracker/07-complete-task-tracker/) | 07 | 分项能力尚未经过完整交付 | 完整需求、错误路径、测试、文档和迁移任务通过验收 |
 
-每个里程碑在正式建设时放进真正产生该变化的 Unit。当前只固定名称、所有权和因果关系，不提前创建源码、Lab 或 Unit 目录。
+七个里程碑均归属实际产生变化的 Unit，独立保存完整源码、运行文档和测试。概念章节没有重复应用，闭卷参考解是练习答案，不计为第八个主线状态。
 
 保存新状态前必须回答：
 
@@ -153,14 +153,15 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 
 ## 6. Focused Lab 策略
 
-预期只有以下机制可能值得隔离；是否正式创建仍由对应 Unit 建设时决定：
+以下五个 Focused Lab 已建设；仅在控制变量或隔离失败确有价值时使用：
 
-| 候选 Lab | 归属 | 隔离理由 |
+| Lab | 归属 | 隔离理由 |
 |---|---|---|
 | [`float-precision`](01-first-useful-python-program/03-trust-user-input/float-precision-lab/) | Module 01 / Unit 03 | 与 Task Tracker 主线关系弱，但基础数值语义需要可观察证据 |
 | [`shared-mutable-state`](02-collections-and-mutable-state/03-shared-mutable-state/shared-mutable-state-lab/) | Module 02 / Unit 03 | 需要控制变量观察 aliasing、mutation 与复制边界 |
-| `mutable-default-argument` | Module 04 / Unit 03 | 需要重复调用证明默认对象被意外共享 |
-| `scope-and-rebinding` | Module 04 / Unit 03 | 需要最小实验区分查找、mutation 与 rebinding |
+| [`mutable-default-argument`](04-functions-and-contracts/03-state-and-scope/mutable-default-argument-lab/) | Module 04 / Unit 03 | 需要重复调用证明默认对象被意外共享 |
+| [`scope-and-rebinding`](04-functions-and-contracts/03-state-and-scope/scope-and-rebinding-lab/) | Module 04 / Unit 03 | 需要最小实验区分查找、mutation 与 rebinding |
+| [`circular-import`](05-modules-and-packages/03-break-circular-dependencies/circular-import-lab/) | Module 05 / Unit 03 | 独立进程比较双向依赖失败与职责修复 |
 
 `append`、`pop`、负索引、keyword argument、`return` 等普通知识不单独建立 Lab 或工程。
 
@@ -192,7 +193,7 @@ Stage 01 是后续 Stage 的课程设计参考样本，不是一个新的完成�
 
 学习者在不照抄正文的情况下完成以下变化：
 
-> 给 `Task` 增加 `priority`，支持按优先级排序，并新增 `list --pending` 能力。
+> 给 `Task` 增加 `due_in_days`，支持按既有优先级排序，并新增 `list --due`，筛选今天到期且未完成的任务。0 与 None 必须区分；排序不改变正式集合顺序。
 
 验收必须同时看到：
 
@@ -248,49 +249,14 @@ Stage 01 允许简单的内存状态、标准库 CLI 和朴素目录。它只因
 7. 用基础测试验证关键行为，说明测试证明了什么、没有证明什么。
 8. 独立扩展 CLI Task Tracker 的新需求，而不是照抄正文。
 
-## 10. 当前目录与建设顺序
+## 10. 当前建设结果与学习验证
 
-Module 01～02 已经完成正式正文、各自唯一的主线源码状态、必要 Focused Lab 和自动化验证。Module 03 已定稿设计并建成 Unit 01，后两个 Unit 尚未创建；Module 04～07 仍然只保留 Module 级边界说明：
+本阶段已完成 7 个 Module、21 个 Unit、七个主线源码里程碑、五个 Focused Lab，以及闭卷迁移题与独立参考解。源码从脚本、集合、控制流、函数、Package、对象到完整 CLI 连续演进，先前状态均保留。
 
-```text
-01-python-language-foundations/
-├── README.md
-├── 01-first-useful-python-program/
-│   ├── README.md
-│   ├── 01-handle-first-task/
-│   ├── 02-assignment-and-binding/
-│   └── 03-trust-user-input/
-│       ├── README.md
-│       ├── 01-interactive-script/
-│       └── float-precision-lab/
-├── 02-collections-and-mutable-state/
-│   ├── README.md
-│   ├── 01-choose-task-data-shape/
-│   ├── 02-read-and-update-nested-data/
-│   └── 03-shared-mutable-state/
-│       ├── README.md
-│       ├── 02-collection-model/
-│       └── shared-mutable-state-lab/
-├── 03-control-flow/
-│   ├── README.md
-│   └── 01-readable-business-branches/
-│       └── README.md
-├── 04-functions-and-contracts/          # 只有 Module README
-├── 05-modules-and-packages/             # 只有 Module README
-├── 06-classes-and-object-collaboration/ # 只有 Module README
-└── 07-integration-and-stage-project/    # 只有 Module README
-```
+- [整阶段验证与审查记录](VERIFY.md)：命令、覆盖范围、保留边界。
+- [完整 Task Tracker](07-integration-and-stage-project/02-complete-and-verify-task-tracker/07-complete-task-tracker/)：编辑、删除、状态筛选和输入中断。
+- [闭卷迁移验收](07-integration-and-stage-project/03-closed-book-transfer/)：新字段、排序、到期筛选与设计解释。
 
-后续建设顺序：
+没有空 Unit 占位；概念章节不伪造源码副本。原 phase 课程仍独立维护，未被本次建设替换。
 
-```text
-Module 01～02 已完成 Technical Gate 与 Teaching Gate
-→ Module 03 / Unit 01 已完成正文与验证
-→ 建设 Module 03 / Unit 02 的遍历与终止规则
-→ 验证它是否自然继承 02-collection-model
-→ 依次推进后续 Module
-→ 完成完整 Stage Project
-→ 进行真实 Learning Gate
-```
-
-目录存在与 README 存在都不代表课程已经完成。当前 Module 01～02 整体及 Module 03 / Unit 01 达到 `BUILT`；Module 03 整体与 Stage 01 仍保持 `DESIGNED`。在其余 Module 建成并完成整个 Stage 的 Technical Gate 与 Teaching Gate 前，不提高 Stage 状态。在真实学习者通过跟做和迁移验证前，任何内容都不标记 `VALIDATED`。
+下一道门禁是收集真实学习者的 Guided Build 与 Closed-book Transfer 记录，而不是继续增加本 Stage 的术语数量。作者测试通过、目录完整和参考解可运行，都不能替代 Learning Gate；在有真实证据前，Stage、Module 与 Unit 最高保持 `BUILT`。

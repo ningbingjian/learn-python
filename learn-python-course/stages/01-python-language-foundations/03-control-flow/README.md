@@ -1,10 +1,10 @@
 # Module 01.03 — Control Flow
 
-> 状态：`DESIGNED`<br>
-> 当前进度：Unit 01 `BUILT`；Unit 02～03 尚未建设<br>
+> 状态：`BUILT`<br>
+> 当前进度：三个 Unit 与完整控制流里程碑均为 `BUILT`<br>
 > 核心问题：已经保存的数据怎样变成有规则、会重复执行并能正确结束的程序？<br>
 > 进入状态：[`02-collection-model`](../02-collections-and-mutable-state/03-shared-mutable-state/02-collection-model/) 已能保存和修改多条任务，但只能按固定顺序运行一次<br>
-> 退出状态：`03-control-flow-cli`
+> 退出状态：[`03-control-flow-cli`](03-compose-interactive-cli/03-control-flow-cli/)
 
 ## 1. Module 目标
 
@@ -61,12 +61,12 @@ quit
 | Unit | 计划目录 | 核心问题 | 教学形态 | 完成后多出的能力 |
 |---|---|---|---|---|
 | [01 — Readable Business Branches](01-readable-business-branches/) | `01-readable-business-branches/`（`BUILT`） | 怎样把业务规则写成可读分支？ | `CONCEPT` + Rule Comparison | 能用布尔条件和互斥分支表达任务规则，并解释分支顺序 |
-| 02 — Traverse & Terminate Loops | `02-traverse-and-terminate-loops/` | 怎样处理一组任务并正确终止？ | `MECHANISM` + `BUILD` | 能为有限集合和未知次数交互选择不同循环，并证明终止条件 |
-| 03 — Compose Interactive CLI | `03-compose-interactive-cli/` | 怎样把命令、规则和循环组合成可用 CLI？ | `BUILD` + `PROJECT` | 能完成、运行并验证 `add / list / complete / quit` 命令循环 |
+| [02 — Traverse & Terminate Loops](02-traverse-and-terminate-loops/) | `02-traverse-and-terminate-loops/` | 怎样处理一组任务并正确终止？ | `MECHANISM` + `BUILD` | 能为有限集合和未知次数交互选择不同循环，并证明终止条件 |
+| [03 — Compose Interactive CLI](03-compose-interactive-cli/) | `03-compose-interactive-cli/` | 怎样把命令、规则和循环组合成可用 CLI？ | `BUILD` + `PROJECT` | 能完成、运行并验证 `add / list / complete / quit` 命令循环 |
 
 三个 Unit 继续演进同一个 Task Tracker，不创建三套小项目。Unit 01 和 Unit 02 使用正文中的可运行片段建立模型；Unit 03 保存本 Module 唯一完整源码状态。
 
-Unit 01 已建成，正文中的片段各自可运行，并附预期输出与迁移练习。Unit 02～03 的目录名和边界已固定，尚未创建目录；完整源码里程碑仍由 Unit 03 承接。
+三个 Unit 已建设，正文提供可运行片段、预期输出、练习与参考判断。完整源码由 Unit 03 承接；整阶段验证见 [VERIFY.md](../VERIFY.md)。
 
 ## 4. Unit 01 — Readable Business Branches
 
@@ -351,21 +351,11 @@ quit     → 正常结束会话
 
 通过设计、正文、技术检查和迁移练习，只能说明本 Module 达到 `BUILT`。在真实学习者独立完成跟做与迁移前，不标记 `VALIDATED`。
 
-## 11. 建设顺序
+## 11. 建设结果与验证
 
-正式建设时按下面顺序推进：
+三个 Unit 已完成正文、演进说明与练习；Unit 03 保存完整四命令 CLI 和黑盒回归。Unit 01 的既有分支内容保留，Unit 02 补充遍历、终止与修改边界，Unit 03 将局部机制组合为会话。
 
-```text
-Unit 01 已完成正文、片段验证与教学审查
-→ 写 Unit 02，审查循环选择和终止证明
-→ 写 Unit 03 与唯一完整源码状态
-→ 运行全部黑盒测试
-→ 从 02-collection-model 重新走一遍演进
-→ 完成 Technical Gate 与 Teaching Gate
-→ 更新 Stage 01 状态导航
-```
-
-Unit 正文通过前不批量铺后续目录。只有三个 Unit、源码里程碑和完整门禁都完成后，Module 03 才从 `DESIGNED` 改为 `BUILT`。
+本 Module 达到 `BUILT`，不代表真实学习者已通过上述 Packing Checklist 迁移。练习验收与参考判断见 [Unit 03 的补充迁移](03-compose-interactive-cli/exercises/)。
 
 ## 12. 本 Module 不展开什么
 

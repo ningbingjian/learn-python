@@ -498,7 +498,7 @@ False
 
 本次作者验证在 Python 3.14 下完成：17 段独立片段与各自输出逐一对应，补测完成状态、空集合保护、六种摘要组合、七组新增校验和十二种迁移组合，共 30 组补充输入；反转短路顺序及缺失 `done` 字段分别产生预期的 `IndexError` 和 `KeyError`。所有片段通过 Ruff 隔离模式下的 `E4,E7,E9,F` 检查与格式检查。此处保留了用于教学的恒真条件和常量真值观察；启用简化规则时会出现提示，不能把它们自动改写后仍声称保留了原实验。
 
-本 Unit 的 `BUILT` 表示正文、练习和上述技术及教学审查完成；尚无真实学习者跟做与闭卷迁移证据，因此不是 `VALIDATED`。Module 03 整体仍为 `DESIGNED`。
+本 Unit 的 `BUILT` 表示正文、练习和上述技术及教学审查完成；尚无真实学习者跟做与闭卷迁移证据，因此不是 `VALIDATED`。后续两个 Unit 与完整源码已建成，Module 03 整体为 `BUILT`；整阶段验证见 [VERIFY.md](../../VERIFY.md)。
 
 下一 Unit 将处理任意数量的任务和未知次数的交互。循环职责与终止规则见 [Module 03 设计](../README.md#5-unit-02--traverse--terminate-loops)。完整命令路由、`match` 和 `03-control-flow-cli` 源码里程碑由 Unit 03 承接。
 

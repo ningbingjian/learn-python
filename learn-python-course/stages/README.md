@@ -7,7 +7,7 @@
 | Stage | 名称 | 状态 | 当前目录 |
 |---:|---|---|---|
 | 00 | Developer Bootstrap | `DESIGNED` | [`00-developer-bootstrap`](00-developer-bootstrap/) |
-| 01 | Python Language Foundations | `DESIGNED` | [`01-python-language-foundations`](01-python-language-foundations/) |
+| 01 | Python Language Foundations | `BUILT` | [`01-python-language-foundations`](01-python-language-foundations/) |
 | 02 | Python Data Model & Pythonic Design | `PLANNED` | 尚未创建 |
 | 03 | Typing, API Design & Metaprogramming | `PLANNED` | 尚未创建 |
 | 04 | Data Structures & Algorithms | `PLANNED` | 尚未创建 |
@@ -42,4 +42,4 @@
 
 同理，Module 和 Unit 也不以“先把目录铺满”为进度。目录存在、README 存在或代码能运行，都不能单独代表课程已经完成。状态定义和质量要求见 [`../QUALITY_GATE.md`](../QUALITY_GATE.md)。
 
-Stage 01 当前已完成 Module 01～02 的六个正式 Unit、前两个主线源码状态和必要 Focused Lab，以及 Module 03 / Unit 01 的业务分支正文与练习，共七个 `BUILT` Unit。Module 03 的后两个 Unit 尚未建设，Module 04～07 仍只有边界说明。Module 03 和 Stage 01 整体继续保持 `DESIGNED`。
+Stage 01 已完成七个 Module、21 个 `BUILT` Unit、七个主线源码状态、五个 Focused Lab 与闭卷迁移参考解。整阶段验证方法见 [VERIFY.md](01-python-language-foundations/VERIFY.md)。真实 Learning Gate 尚未执行，所有状态均未提升为 `VALIDATED`。

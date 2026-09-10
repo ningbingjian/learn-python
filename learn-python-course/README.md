@@ -214,9 +214,9 @@ Architecture Spine / Graduation Project
 ```text
 课程治理与总路线：                  BUILT
 Stage 00 Developer Bootstrap：      DESIGNED
-Stage 01 Language Foundations：     DESIGNED
+Stage 01 Language Foundations：     BUILT
 Stage 02～28：                      PLANNED
-正式 BUILT Unit：                   7
+正式 BUILT Unit：                   21
 正式 VALIDATED Unit：               0
 ```
 
@@ -224,9 +224,9 @@ Stage 02～28：                      PLANNED
 
 - [`stages/README.md`](stages/README.md)：Stage 状态索引。
 - [`stages/00-developer-bootstrap/`](stages/00-developer-bootstrap/)：Stage 00 设计。
-- [`stages/01-python-language-foundations/`](stages/01-python-language-foundations/)：Stage 01 设计、已建成的 Module 01～02 与 Module 03 / Unit 01。
+- [`stages/01-python-language-foundations/`](stages/01-python-language-foundations/)：Stage 01 完整课程：7 个 Module、21 个 Unit 与七个源码里程碑。
 
-Stage 状态与内部 Unit 状态分别记录。Stage 01 整体仍为 `DESIGNED`，其中 Module 01～02 的六个 Unit 与 Module 03 / Unit 01 已经达到 `BUILT`；Module 03 整体仍为 `DESIGNED`，局部建成不代表整个 Module 或 Stage 已经建成。
+Stage 01 的七个 Module、21 个 Unit 及必要源码、实验和练习已建设并通过作者检查，整体为 `BUILT`；真实学习者验证仍为 0，不标记 `VALIDATED`。验证范围见 [Stage 01 VERIFY.md](stages/01-python-language-foundations/VERIFY.md)。
 
 ## 10. 状态语义
 

@@ -1,16 +1,29 @@
 # Module 01.04 — Functions & Contracts
 
-> 状态：`DESIGNED`<br>
-> 核心问题：重复和嵌套开始妨碍修改后，怎样用函数建立职责与可测试契约？<br>
-> 进入状态：`03-control-flow-cli` 可用，但单文件流程开始重复和嵌套。<br>
-> 退出状态：`04-function-oriented`
+> 状态：`BUILT`<br>
+> 核心问题：脚本重复且难以独立测试，怎样用显式契约划分职责？<br>
+> 当前进度：三个 Unit 的正文、练习和必要源码已建设；尚未经过真实 Learning Gate。
 
-本 Module 从现有脚本的修改成本推导函数，而不是先枚举函数语法。参数、返回值、默认参数和作用域都必须连接到真实契约、Bug 或测试。
+## 为什么在这里出现
 
-计划中的 Unit 问题：
+解析、字段规则、集合操作与交互分为函数，仍在同一文件。 保持 add/list/complete/quit 外部行为，先改变责任与结构；新增功能留给 Module 07。
 
-1. 什么时候应该把代码抽成函数？
-2. 参数和返回值怎样形成稳定契约？
-3. 函数为什么会意外共享或修改状态？
+## Unit 阅读顺序
 
-本目录当前只是 Module 级设计骨架，不包含空 Unit 或 Lab 目录；详细边界见[Stage 01 设计](../README.md#4-module-与-unit-边界)。
+1. [什么时候应该把代码抽成函数？](01-extract-responsibilities/)：从终端与规则混杂推导解析、操作、展示边界，区分 return 与 print。
+2. [参数和返回值怎样形成稳定契约？](02-parameters-and-return-contracts/)：位置、关键字、默认参数、多值解包与必要的星号参数入口；明确错误与副作用。
+3. [函数为什么会意外共享或修改状态？](03-state-and-scope/)：默认参数与作用域故障实验，形成显式数据流的完整函数版。
+
+## 完整源码与证据
+
+[04-function-oriented](03-state-and-scope/04-function-oriented/) 由 Unit 03 承接，是本 Module 唯一主线源码状态。前两个概念章节使用正文片段，不复制完整应用；上一版本仍完整保留，不依赖 Git 历史恢复教材。
+
+两个 Focused Lab 隔离可变默认参数与作用域重新绑定。
+
+验证从源码目录运行 `python3.14 -m unittest discover -s tests -v`；整阶段方法见 [VERIFY.md](../VERIFY.md)。正文每个练习都明确约束、验收与解题判断，测试通过仅证明材料可运行，不替代学习者解释。
+
+## 本 Module 的边界与退出能力
+
+不提前拆包或引入类；完整 pytest、Mock 与高级类型系统后置。退出时应能说清每个函数接受、返回、修改和抛出什么。
+
+`BUILT` 不等于 `VALIDATED`。只有真实学习者完成跟做与迁移，才提升学习验证状态；全 Stage 的状态与因果链见 [Stage README](../README.md)。

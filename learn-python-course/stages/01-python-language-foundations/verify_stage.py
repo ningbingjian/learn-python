@@ -42,25 +42,76 @@ def run(args, cwd):
     return result
 
 
-def check_structure():
-    modules = sorted(
+EXPECTED_UNITS = {
+    "01-first-useful-python-program": [
+        "01-handle-first-task",
+        "02-assignment-and-binding",
+        "03-trust-user-input",
+    ],
+    "02-collections-and-mutable-state": [
+        "01-choose-task-data-shape",
+        "02-read-and-update-nested-data",
+        "03-shared-mutable-state",
+    ],
+    "03-control-flow": [
+        "01-readable-business-branches",
+        "02-traverse-and-terminate-loops",
+        "03-compose-interactive-cli",
+    ],
+    "04-functions-and-contracts": [
+        "01-extract-responsibilities",
+        "02-parameters-and-return-contracts",
+        "03-state-and-scope",
+    ],
+    "05-modules-and-packages": [
+        "01-separate-module-responsibilities",
+        "02-entry-points-and-imports",
+        "03-break-circular-dependencies",
+    ],
+    "06-classes-and-object-collaboration": [
+        "01-from-records-to-objects",
+        "02-instance-state-and-methods",
+        "03-compose-task-collaborators",
+    ],
+    "07-integration-and-stage-project": [
+        "01-plan-requirements-and-acceptance",
+        "02-complete-and-verify-task-tracker",
+        "03-closed-book-transfer",
+    ],
+}
+
+
+def numbered_directories(parent):
+    return sorted(
         path
-        for path in ROOT.iterdir()
-        if path.is_dir() and re.match(r"0[1-7]-", path.name)
+        for path in parent.iterdir()
+        if path.is_dir() and re.match(r"\d+-", path.name)
     )
-    assert len(modules) == 7, modules
+
+
+def check_built(directory):
+    document = directory / "README.md"
+    assert document.is_file(), document
+    status = re.search(
+        r"^>\s*状态：\s*`([^`]+)`", document.read_text(encoding="utf-8"), re.MULTILINE
+    )
+    assert status and status[1] == "BUILT", f"expected exact BUILT status: {document}"
+
+
+def check_structure(root=ROOT):
+    modules = numbered_directories(root)
+    assert {path.name for path in modules} == set(EXPECTED_UNITS), modules
+    check_built(root)
     units = []
     for module in modules:
-        current = sorted(
-            path
-            for path in module.iterdir()
-            if path.is_dir() and re.match(r"0[1-3]-", path.name)
+        check_built(module)
+        current = numbered_directories(module)
+        assert {path.name for path in current} == set(EXPECTED_UNITS[module.name]), (
+            module
         )
-        assert len(current) == 3, module
         units.extend(current)
         for unit in current:
-            assert (unit / "README.md").is_file(), unit
-            assert "BUILT" in (unit / "README.md").read_text(encoding="utf-8"), unit
+            check_built(unit)
     print(
         f"structure: {len(modules)} modules, {len(units)} built units, {len(STATES)} milestones"
     )
@@ -131,6 +182,9 @@ def main():
     check_python()
     check_transcripts()
     check_branch_examples()
+    result = run(["-m", "unittest", "test_verifier", "-v"], ROOT)
+    assert "Ran 8 tests" in result.stderr, result.stderr
+    print("verifier regression: 8 tests passed")
     total = 0
     for state in [
         *STATES,

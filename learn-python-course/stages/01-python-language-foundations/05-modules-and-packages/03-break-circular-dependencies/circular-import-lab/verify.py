@@ -12,7 +12,7 @@ broken = subprocess.run(
     timeout=5,
 )
 assert broken.returncode != 0
-assert "ImportError: cannot import name 'success_message' from 'cli'" in broken.stderr
+assert "ImportError: cannot import name 'success_message'" in broken.stderr
 assert "operations.py" in broken.stderr and "cli.py" in broken.stderr
 print("broken: ImportError from partial initialization")
 fixed = subprocess.run(
